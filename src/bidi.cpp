@@ -24,4 +24,5 @@ int32_t main()
             std::cout << dist << std::endl;
     }
 
+    return 0;
 }
