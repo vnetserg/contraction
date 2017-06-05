@@ -1,2 +1,2 @@
-# contraction
-Contraction Hierarchies algorithm implementation
+# Contraction Hierarchies
+This project is a C++ implementation of the Contraction Hierarchies algorithm.
