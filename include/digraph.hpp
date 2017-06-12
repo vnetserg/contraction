@@ -1,3 +1,6 @@
+#ifndef DIGRAPH_H
+#define DIGRAPH_H
+
 #include <vector>
 #include <memory>
 #include <string>
@@ -38,3 +41,5 @@ private:
 
     std::shared_ptr< std::vector< std::vector<Edge> > > vert_edges, reverse_vert_edges;
 };
+
+#endif // DIGRAPH_H

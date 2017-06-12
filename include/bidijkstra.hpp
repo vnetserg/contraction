@@ -1,3 +1,6 @@
+#ifndef BIDIJKSTRA_H
+#define BIDIJKSTRA_H
+
 #include "intheap.hpp"
 #include "digraph.hpp"
 
@@ -21,3 +24,5 @@ private:
                        const std::vector<int64_t> &other_dist);
 
 };
+
+#endif // BIDIJKSTRA_H

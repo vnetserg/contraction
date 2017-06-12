@@ -1,3 +1,6 @@
+#ifndef INTHEAP_H
+#define INTHEAP_H
+
 #include <vector>
 
 class IntHeap
@@ -47,3 +50,5 @@ private:
     inline void swap(int64_t i, int64_t j);
 
 };
+
+#endif // INTHEAP_H
