@@ -1,3 +1,5 @@
+class IntHeap;
+
 #ifndef INTHEAP_H
 #define INTHEAP_H
 

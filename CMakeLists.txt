@@ -7,6 +7,7 @@ add_executable(
     src/bidi.cpp
     src/bidijkstra.cpp
     src/digraph.cpp
+    src/vertex_order.cpp
     src/intheap.cpp
 )
 target_compile_features(bidi PRIVATE cxx_auto_type)
@@ -16,6 +17,7 @@ add_executable(
     src/conhier.cpp
     src/contraction_hierarchies.cpp
     src/vertex_order.cpp
+    src/dijkstra_witness.cpp
     src/bidijkstra.cpp
     src/digraph.cpp
     src/intheap.cpp

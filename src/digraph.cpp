@@ -18,10 +18,44 @@ Digraph* Digraph::reversed()
     return new Digraph(reverse_vert_edges, vert_edges);
 }
 
+Digraph* Digraph::copy()
+{
+    Digraph *graph = new Digraph(0);
+    graph->vert_edges = vert_edges;
+    graph->reverse_vert_edges = reverse_vert_edges;
+    return graph;
+}
+
 void Digraph::addEdge(int64_t from, int64_t to, int64_t weight)
 {
     (*vert_edges)[from].push_back(Edge(from, to, weight));
     (*reverse_vert_edges)[to].push_back(Edge(to, from, weight));
+}
+
+void Digraph::removeVertex(int64_t v)
+{
+    (*vert_edges)[v].clear();
+    (*reverse_vert_edges)[v].clear();
+}
+
+void Digraph::leaveUpwardEdges(const VertexOrder &order)
+{
+    std::vector<int64_t> vert_index(order.size());
+    for (int64_t i = 0; i < order.size(); i++)
+        vert_index[order[i]] = i;
+
+    for (int64_t i = 0; i < vert_edges->size(); i++)
+    {
+        std::vector<Digraph::Edge> up_edges;
+        for (const Digraph::Edge &e : (*vert_edges)[i])
+            if (vert_index[e.from] < vert_index[e.to])
+                up_edges.push_back(e);
+
+        (*vert_edges)[i] = up_edges;
+        (*reverse_vert_edges)[i].clear();
+        for (const Digraph::Edge &e : (*vert_edges)[i])
+            (*reverse_vert_edges)[i].push_back(e.reversed());
+    }
 }
 
 std::vector<Digraph::Edge>::const_iterator Digraph::adj_cbegin(int64_t vert) const

@@ -1,3 +1,5 @@
+class Bidijkstra;
+
 #ifndef BIDIJKSTRA_H
 #define BIDIJKSTRA_H
 
