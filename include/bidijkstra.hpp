@@ -22,6 +22,8 @@ private:
     std::vector<int64_t> dist_fwd, dist_bwd, workset;
     IntHeap queue_fwd, queue_bwd;
 
+    void clearLastQuery();
+
     bool dijkstra_step(const Digraph &gr, IntHeap &queue, std::vector<int64_t> &dist,
                        const std::vector<int64_t> &other_dist);
 

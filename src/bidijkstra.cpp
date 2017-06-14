@@ -14,14 +14,7 @@ int64_t Bidijkstra::query(int64_t src, int64_t dst)
         return 0;
 
     // Clear last query
-    for (int64_t &v : workset)
-    {
-        dist_fwd[v] = INFTY;
-        dist_bwd[v] = INFTY;
-    }
-    queue_fwd.clear();
-    queue_bwd.clear();
-    workset.clear();
+    clearLastQuery();
 
     // Add starting points
     queue_fwd.push(src, 0);
@@ -47,6 +40,19 @@ int64_t Bidijkstra::query(int64_t src, int64_t dst)
 }
 
 // PRIVATE
+
+void Bidijkstra::clearLastQuery()
+{
+    for (int64_t &v : workset)
+    {
+        dist_fwd[v] = INFTY;
+        dist_bwd[v] = INFTY;
+    }
+    queue_fwd.clear();
+    queue_bwd.clear();
+    workset.clear();
+}
+
 
 bool Bidijkstra::dijkstra_step(const Digraph &gr, IntHeap &queue,
                                std::vector<int64_t> &dist,

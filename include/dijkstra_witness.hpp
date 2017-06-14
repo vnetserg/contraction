@@ -3,7 +3,7 @@ class DijkstraWitness;
 #ifndef WITNESS_H
 #define WITNESS_H
 
-#include "digraph.hpp"
+#include "bidijkstra.hpp"
 
 
 class DijkstraWitness
